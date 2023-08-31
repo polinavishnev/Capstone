@@ -6,7 +6,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.ensemble import RandomForestClassifier
 
 
-smart_df = pd.read_csv('smart_goals.csv')
+smart_df = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vTqcSkIGF8WRtMo2LMmWvxt7ra5dD4GYTbLY0ch5Ps59b4QcS4Vkk5bwzVtBHYqGXxQFO7yDRidA4Ly/pub?output=csv')
 
 
 # make it so the values in all columns but "Goal" are either 0 or 1. If the value is "N" or "No", make it zero. If the value is "Y" or "Yes", make it 1.
@@ -21,7 +21,7 @@ smart_df['Relevant'] = smart_df['Relevant'].replace(['Y', 'Yes'], 1)
 smart_df['Time-bound'] = smart_df['Time-bound'].replace(['N', 'No'], 0)
 smart_df['Time-bound'] = smart_df['Time-bound'].replace(['Y', 'Yes'], 1)
 
-clean_df = pd.read_csv('clean_text.csv')[:290]
+clean_df = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vTqcSkIGF8WRtMo2LMmWvxt7ra5dD4GYTbLY0ch5Ps59b4QcS4Vkk5bwzVtBHYqGXxQFO7yDRidA4Ly/pub?output=csv')[:290]
 smart_df = pd.concat([smart_df, clean_df], axis=0)
 smart_df.reset_index(drop=True, inplace=True)
 smart_df.drop(smart_df.columns[6], axis=1, inplace=True)
@@ -37,9 +37,9 @@ def classify_goal(goal, data):
         if int(goal_pred) == 1:
             goal_pred = ''
         else:
-            goal_pred = 'Not yet'
+            goal_pred = 'Not yet '
             component = component.lower()
-        string_output += (f'Prediction: {goal_pred} {component} with an accuracy of {round(accuracy, 2)} \n')
+        string_output += (f'{goal_pred}{component} with an accuracy of {round(accuracy, 2)}. \n')
     return string_output
 
 def classify_rf(goal, component, data):

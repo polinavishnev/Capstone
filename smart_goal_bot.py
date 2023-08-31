@@ -5,6 +5,7 @@
 from smat_classifier import classify_goal, data
 from dotenv import load_dotenv
 
+
 load_dotenv()
 from telegram.ext import (
     Application,
