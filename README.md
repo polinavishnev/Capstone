@@ -27,4 +27,4 @@ The Telegram bot uses a scikit-learn ensemble classifier model to decide whether
 
 <img width="679" alt="image" src="https://github.com/polinavishnev/SMAT-Goal-Telegram-Bot/assets/68515140/657206d7-5efb-4ff1-ad63-df23d4136a1b">
 
-The code for the classifier model can be found in `smat_classifier.py` file while the basic Telegram app is found in the `smart_goal_bot.py`. 
+The code for the random forest classifier model can be found in `smat_classifier.py` file while the basic Telegram app is found in the `smart_goal_bot.py`. 
